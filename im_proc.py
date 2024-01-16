@@ -170,7 +170,7 @@ if contours:
     cv2.rectangle(original_image, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
 # Display the image with drawn contours, convex hulls, and bounding box
-cv2.imshow('Contours, Convex Hulls, and Bounding Box', original_image)
+#cv2.imshow('Contours, Convex Hulls, and Bounding Box', original_image)
 
 # Wait for a key press to close the window
 cv2.waitKey(0)
@@ -204,8 +204,8 @@ while True:
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     # Define range of color to track
-    lower_color = np.array([30, 150, 50])  # Example values
-    upper_color = np.array([255, 255, 180])
+    lower_color = np.array([10, 100, 50])  # Example values
+    upper_color = np.array([205, 255, 180])
 
     # Threshold the HSV image to get only the desired color
     mask = cv2.inRange(hsv, lower_color, upper_color)
