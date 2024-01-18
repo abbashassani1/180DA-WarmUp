@@ -1,5 +1,5 @@
 
-# Task 4: camera excercese 3
+# Task 4: camera excercese 3 and the code from task 4 and question one
 
 import cv2
 import numpy as np
