@@ -1,5 +1,5 @@
 
-# Souces I used the k-means and the tutorial to find an immage's domainant colors
+# Souces I used the k-means and the tutorial to find an immage's domainant colors.
 # as well, I used a youtbue video: https://www.youtube.com/watch?v=oXlwWbU8l2o&t=11544s
 
 # This the task 4: question number 4
