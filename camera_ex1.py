@@ -97,3 +97,18 @@ track_object()
 #     cv2.destroyAllWindows()
 
 # track_object_in_rgb()
+
+
+# Using HSV is typically more effective than RGB for color-based object tracking due to 
+# its ability to better handle variations in lighting and environmental conditions.
+
+
+# The threshold range in the code for an orange object is defined as:
+# Lower Limits: [5, 100, 100] (in HSV)
+# Upper Limits: [15, 255, 255] (in HSV)
+# This range is relatively narrow, indicating a specific hue for orange, 
+# but it's large in saturation and value. 
+#
+
+# Part 2:  Is there a major difference in the tracking ability of your object?
+# For RBG it was a major difference but for HSV it was not a mjoar difference. 
