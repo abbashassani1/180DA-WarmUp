@@ -1,4 +1,5 @@
 
+# Question 1 of task 4
 #This funciton track  the color object with hsv
 import cv2
 import numpy as np
@@ -48,6 +49,7 @@ def track_object():
     cv2.destroyAllWindows()
 
 track_object()
+
 
 
 
@@ -108,7 +110,7 @@ track_object()
 # Upper Limits: [15, 255, 255] (in HSV)
 # This range is relatively narrow, indicating a specific hue for orange, 
 # but it's large in saturation and value. 
-#
 
-# Part 2:  Is there a major difference in the tracking ability of your object?
+
+# Question 2 of task 4:  Is there a major difference in the tracking ability of your object?
 # For RBG it was a major difference but for HSV it was not a mjoar difference. 
