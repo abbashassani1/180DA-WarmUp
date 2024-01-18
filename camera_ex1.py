@@ -1,147 +1,99 @@
+
+#This funciton track  the color object with hsv
+import cv2
+import numpy as np
+
+def track_object():
+    #Start video capture from  webcam
+    cap = cv2.VideoCapture(0)
+
+    if not cap.isOpened():
+        print("Error: Camera not accessible")
+        return
+
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            print("Error: Unable to capture video")
+            break
+
+        # Convert frame to HSV color space
+        hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+        # HSV range for orange color
+        lower_limits = np.array([5, 100, 100])
+        upper_limits = np.array([15, 255, 255])
+
+        # Create a mask for orange color
+        mask = cv2.inRange(hsv_frame, lower_limits, upper_limits)
+
+        # Find contours in the mask
+        contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+        # draw bounding box around the largest contour
+        if contours:
+            largest_contour = max(contours, key=cv2.contourArea)
+            x, y, w, h = cv2.boundingRect(largest_contour)
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+        # Display the resulting frame and mask
+        cv2.imshow('Frame', frame)
+        
+        # Break the loop with the 'q' key
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # Release the capture and close all windows
+    cap.release()
+    cv2.destroyAllWindows()
+
+track_object()
+
+
+
+# #this code is for tracking the object using RBG
 # import cv2
 # import numpy as np
 
-# # create a function to track the object
-# def track_object(frame, lower_color, upper_color, color_space = 'HSV'):
-#     if color_space == 'HSV':
-#         # needs to convert to HSV color space
-#         converted_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-#     else:
-#         # Use RGB color space
-#         converted_frame = frame
+# def track_object_in_rgb():
+#     # Start video capture from the first connected webcam
+#     cap = cv2.VideoCapture(0)
 
-#     # create a mask with the specified color range
-#     mask = cv2.inRange(converted_frame, lower_color, upper_color)
+#     if not cap.isOpened():
+#         print("Error: Camera not accessible")
+#         return
 
-#     # find contours in the mask
-#     contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-
-#     # draw bounding box around the largest contour
-#     if contours:
-#         largest_contour = max(contours, key=cv2.contourArea)
-#         x, y, w, h = cv2.boundingRect(largest_contour)
-#         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-
-#     return frame
-
-# # start capturing video from a webcam
-# cap = cv2.VideoCapture(0)
-
-# # set the color range for tracking
-# # HSV color range for a blue object
-# lower_color = np.array([10, 100, 100])
-# upper_color = np.array([20, 255, 255])
-
-# try:
 #     while True:
-#         # capture frame-by-frame
 #         ret, frame = cap.read()
 #         if not ret:
+#             print("Error: Unable to capture video")
 #             break
 
-#         # track the object
-#         frame = track_object(frame, lower_color, upper_color, color_space = 'HSV')
+#         # define RGB range for orange color
+#         lower_limits = np.array([0, 100, 200], dtype="uint8")
+#         upper_limits = np.array([100, 200, 255], dtype="uint8")
 
-#         # display the resulting frame
-#         cv2.imshow('Object Tracking', frame)
+#         # Create a mask for orange color
+#         mask = cv2.inRange(frame, lower_limits, upper_limits)
 
-#         # break the loop with 'q'
+#         # Find contours in the mask
+#         contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+#         # Draw bounding box around the largest contour
+#         if contours:
+#             largest_contour = max(contours, key = cv2.contourArea)
+#             x, y, w, h = cv2.boundingRect(largest_contour)
+#             cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 3)
+
+#         # Display the resulting frame and mask
+#         cv2.imshow('Frame', frame)
+        
+#         # Break the loop with the 'q' key
 #         if cv2.waitKey(1) & 0xFF == ord('q'):
 #             break
-# finally:
-#     # release the capture
+
+#     # Release the capture and close all windows
 #     cap.release()
 #     cv2.destroyAllWindows()
 
-
-# source of this code is a youtube video
-# https://www.youtube.com/watch?v=aFNDh5k3SjU
-import cv2
-import numpy as np
-from PIL import Image
-
-def get_limits(color):
-    c = np.uint8([[color]])
-    hsvC= cv2.cvtColor(c, cv2.COLOR_BGR2HSV)
-    lowerLimit = hsvC[0][0][0] - 10, 100, 100
-    upperLimit = hsvC[0][0][0] + 10, 255, 255
-
-    lowerLimit = np.array(lowerLimit, dtype = np.uint8)
-    upperLimit = np.array(upperLimit, dtype = np.uint8)
-    return lowerLimit, upperLimit
-    k = (upperLimit - lowerLimit)
-    
-    print(k)
-
-yellow = [0, 100, 250]
-cap = cv2.VideoCapture(0)
-
-
-while True:
-    ret, frame = cap.read()
-    cv2.imshow('Frame', frame)
-
-    hsv_img = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-
-    lowerLimit, upperLimit = get_limits(color = yellow)
-    mask = cv2.inRange(hsv_img, lowerLimit, upperLimit)
-    mask_ = Image.fromarray(mask)
-
-    bound_box = mask_.getbbox()
-    #print(bound_box)
-    if bound_box is not None:  # Change here
-        x1, y1, x2, y2 = bound_box
-        frame = cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 5)
- 
-    cv2.imshow('Mask', frame)
-
-
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-
-cap.release()
-cv2.destroyAllWindows()
-
-
-# #RGB text for video
-# import cv2
-# import numpy as np
-# from PIL import Image
-
-# def get_limits(color):
-#     # Directly use the BGR color for limits in RGB space
-#     # You need to define these limits based on the color you want to track
-#     lowerLimit = [color[0] - 10, color[1] - 10, color[2] - 10] 
-#     upperLimit = [color[0] + 10, color[1] + 10, color[2] + 10] 
-
-#     lowerLimit = np.array(lowerLimit, dtype=np.uint8)
-#     upperLimit = np.array(upperLimit, dtype=np.uint8)
-#     return lowerLimit, upperLimit
-
-# # Define orange in BGR
-# orange = [0, 110, 250]  # This is a typical representation of orange in BGR
-# cap = cv2.VideoCapture(0)
-
-# while True:
-#     ret, frame = cap.read()
-#     if not ret:
-#         break
-
-#     lowerLimit, upperLimit = get_limits(color=orange)
-#     mask = cv2.inRange(frame, lowerLimit, upperLimit)
-#     mask_ = Image.fromarray(mask)
-
-#     bound_box = mask_.getbbox()
-#     print(bound_box)
-#     if bound_box is not None:
-#         x1, y1, x2, y2 = bound_box
-#         frame = cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 5)
-
-#     cv2.imshow('Mask', frame)
-
-#     if cv2.waitKey(1) & 0xFF == ord('q'):
-#         break
-
-# cap.release()
-# cv2.destroyAllWindows()
+# track_object_in_rgb()
