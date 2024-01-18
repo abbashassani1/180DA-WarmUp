@@ -1,4 +1,7 @@
 
+# sources I used a video from youtube: https://www.youtube.com/watch?v=oXlwWbU8l2o&t=11544s
+# as well, the tutorials form part 5.1 (Playing Around with Static Images).
+
 # Question 1 of task 4
 #This funciton track  the color object with hsv
 import cv2
@@ -15,7 +18,7 @@ def track_object():
     while True:
         ret, frame = cap.read()
         if not ret:
-            print("Error: Unable to capture video")
+            print("Error: Not able to capture video")
             break
 
         # Convert frame to HSV color space
@@ -81,7 +84,7 @@ track_object()
 #         # Find contours in the mask
 #         contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-#         # Draw bounding box around the largest contour
+#         # Drawing bounding box around the largest contour
 #         if contours:
 #             largest_contour = max(contours, key = cv2.contourArea)
 #             x, y, w, h = cv2.boundingRect(largest_contour)
@@ -108,7 +111,7 @@ track_object()
 # The threshold range in the code for an orange object is defined as:
 # Lower Limits: [5, 100, 100] (in HSV)
 # Upper Limits: [15, 255, 255] (in HSV)
-# This range is relatively narrow, indicating a specific hue for orange, 
+# This range is relatively narrow, indicating a specific hue for orange color, 
 # but it's large in saturation and value. 
 
 
