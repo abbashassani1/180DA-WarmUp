@@ -1,3 +1,6 @@
+
+# Task 4: camera excercese 3
+
 import cv2
 import numpy as np
 
@@ -47,4 +50,5 @@ def track_object():
 
 track_object()
 
-# yes, this code is able to track the color.
+# Does changing your phone brightness help or hurt with how your code is able to track the color?
+# The phone brights hurts becasuse the webcam cannot detect the color due to high brightness and this code is able to track the color so far.
