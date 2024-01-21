@@ -16,10 +16,12 @@ Task: part2:
 Q- Try more similar sounding words (particularly bad examples may be words like “sound” and “found”, letters (A, B, C , D, E , F, G).
    Does the performance start taking a hit?
 A- yes, it does.
+
 Q- Phrases. How long of a phrase can work? Is the length of a phrase actually a good thing for
    “error correction”? 
 A- The pharas of two letters words work and it is hard to recognized one letter like A. The length of a phrase actually 
    is very good for error correction. 
+   
 Q- Play music in the background. Go to a coffee shop (or work in the lab). How well does it work in noise? What are ways to
    improve its performance in noise?
 A- It works very well in noise. We can improve it by making the words longer or pronouncing the letter or word longer.
