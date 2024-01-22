@@ -8,7 +8,7 @@ I use the MQTT for message delivery in many IoT use cases. MQTT allows for messa
 and cloud to device. This makes for easy broadcasting messages to groups of things. MQTT is designed for efficient
 delivery of messages, minimizing network bandwidth and device resource requirements. This makes it ideal for IoT 
 (Internet of Things) and mobile applications.
-WWhile MQTT itself is lightweight, it requires additional security measures to ensure secure data transmission, 
+While MQTT itself is lightweight, it requires additional security measures to ensure secure data transmission, 
 which can add complexity. The communication lag in MQTT is usually in the milliseconds range, but it can vary based 
 on network quality, broker performance, and QoS level, with a few milliseconds to seconds being typical for IoT applications.
 
@@ -35,7 +35,7 @@ A- I might use it in my project. I am not sure yet because still not sure what w
 A- I think it would be very complex becasuse sometimes it is hard recognized the speech.
 (c) What level of speech accuracy do you need? In other words, how quickly do you need an accurate
 recognition? Does a missed recognition hurt the progress of the game?
-A- I neeed a high level of speech accuracy becuase it should recognize the words quickly and accurately. yes, I think a missed recognized 
+A- I need a high level of speech accuracy becuase it should recognize the words quickly and accurately. yes, I think a missed recognized 
    hurt the progress of the game.
 (d) Do you need specific hardware, specific conditions, etc. to have a reasonable confidence that it
     works well enough?
