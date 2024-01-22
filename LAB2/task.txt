@@ -25,3 +25,19 @@ A- The pharas of two letters words work and it is hard to recognized one letter 
 Q- Play music in the background. Go to a coffee shop (or work in the lab). How well does it work in noise? What are ways to
    improve its performance in noise?
 A- It works very well in noise. We can improve it by making the words longer or pronouncing the letter or word longer.
+
+Write some short bullet points with some individual thoughts on how this applies to your project:
+(a) What can you do with your given speech program in the project?
+A- I might use it in my project. I am not sure yet because still not sure what will be my project about.
+   I might use it to talk to the game in my project.
+(b) How complex do you want your speech recognition to be? How complex can you reasonably expect
+    your speech recognition to be?
+A- I think it would be very complex becasuse sometimes it is hard recognized the speech.
+(c) What level of speech accuracy do you need? In other words, how quickly do you need an accurate
+recognition? Does a missed recognition hurt the progress of the game?
+A- I neeed a high level of speech accuracy becuase it should recognize the words quickly and accurately. yes, I think a missed recognized 
+   hurt the progress of the game.
+(d) Do you need specific hardware, specific conditions, etc. to have a reasonable confidence that it
+    works well enough?
+A- I not having any good idea yet what specific hardware or specific conditions are helpful for working enough well. 
+   I consider, I need some kind of filter that helps to work well enough. 
