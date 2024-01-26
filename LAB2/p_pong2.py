@@ -6,15 +6,12 @@ import time
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     print("Connection returned result: " + str(rc))
-    client.subscribe("ece180d/test/Abbas/#", qos=1)
+    
     client.publish("ece180d/test/Abbas/3", 0, qos=1)
-#/////
-
     #print("Connection returned result: " + str(rc))
     # Subscribing in on_connect() means that if we lose the connection and
     # reconnect then subscriptions will be renewed.
-    #client.subscribe("ece180d/test/team6", qos=1)
-#////
+    client.subscribe("ece180d/test/Abbas/#", qos=1)
 # The callback of the client when it disconnects.
 def on_disconnect(client, userdata, rc):
     if rc != 0:
@@ -25,7 +22,7 @@ def on_disconnect(client, userdata, rc):
 # (you can create separate callbacks per subscribed topic)
 
 def on_message(client, userdata, message):
-    time.sleep(1)
+    time.sleep(2)
     if int(message.topic.split('/')[-1]) != 3:
         received_num = int(message.payload.decode())
         new_num = received_num + 1
