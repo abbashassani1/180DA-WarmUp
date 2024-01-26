@@ -22,7 +22,7 @@ def on_disconnect(client, userdata, rc):
 # (won’t be used if only publishing, but can still exist)
 
 def on_message(client, userdata, message):
-    time.sleep(1)
+    time.sleep(2)
     topic_num = int(message.topic.split('/')[-1])
     
     if topic_num != 2:
