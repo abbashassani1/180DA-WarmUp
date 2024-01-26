@@ -35,11 +35,7 @@ A- I might use it in my project. I am not sure yet because still not sure what w
 A- I think it would be very complex because sometimes it is hard to recognize the speech.
 (c) What level of speech accuracy do you need? In other words, how quickly do you need an accurate
 recognition? Does a missed recognition hurt the progress of the game?
-<<<<<<< HEAD
-A- I need a high level of speech accuracy becuase it should recognize the words quickly and accurately. yes, I think a missed recognized 
-=======
 A- I need a high level of speech accuracy because it should recognize the words quickly and accurately. yes, I think a missed recognized 
->>>>>>> 444952983045e1e0ab0164a4868cd3d1b9e1b804
    hurt the progress of the game.
 (d) Do you need specific hardware, specific conditions, etc. to have reasonable confidence that it
     works well enough?
