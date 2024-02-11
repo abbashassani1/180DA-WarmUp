@@ -1,0 +1,8 @@
+1. Please submit a screenshot of you playing your command-line game and your PyGame game with
+another person.
+2. Try reading a bit on one other GUI library. Sometimes you don’t need a full game loop interface to
+implement the games that we are working on, so you can try an easier (or more flexible) interface.
+3. Describe in a short blurb how you think you want to do graphics for your project.
+Creating a virtual environment using Pygame is a great way to utilize Python for interactive graphics and simulations.
+Pygame is a set of Python modules designed for writing video games, but it's also powerful enough for other graphical applications, 
+including virtual environments.
