@@ -1,0 +1,1 @@
+2: the lag is around 0.2s. when can decrease lag when we decrease the frequency. We can add some constraints on IMU itself so that only a single message is sent when something is recongnized.
